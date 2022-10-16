@@ -35,7 +35,7 @@ def get_birthday():
   return (next - today).days
 
 def get_words():
-  words = requests.get("https://api.shadiao.pro/chp")+"\n秋杏宝宝，今天要开开心心的哦！"
+  words = requests.get("https://api.shadiao.pro/chp"+"\n秋杏宝宝，今天要开开心心的哦！")
   if words.status_code != 200:
     return get_words()
   return words.json()['data']['text']
