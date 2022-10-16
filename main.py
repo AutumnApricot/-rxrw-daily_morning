@@ -26,7 +26,7 @@ def get_weather():
 
 def get_count():
   delta = today - datetime.strptime(start_date, "%Y-%m-%d")
-  return delta.days
+  return delta.days+1
 
 def get_birthday():
   next = datetime.strptime(str(date.today().year) + "-" + birthday, "%Y-%m-%d")
@@ -35,7 +35,7 @@ def get_birthday():
   return (next - today).days
 
 def get_words():
-  words = requests.get("https://api.shadiao.pro/chp")
+  words = requests.get("https://api.shadiao.pro/chp")+"\n秋杏宝宝，今天要开开心心的哦！"
   if words.status_code != 200:
     return get_words()
   return words.json()['data']['text']
